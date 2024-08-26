@@ -1,16 +1,40 @@
-import Image from "next/image";
+"use client";
+
+import Image from 'next/image';
 import Navbar from "./components/Navbar";
-import back from '@/app/assets/backone.png';
-import ChatRoom from "./components/chatroom.js'; // Ensure the file name matches exactly
+import t from '@/app/asset/title.png';
+import bb from '@/app/asset/2.png';
+import button from '@/app/asset/logbut.png'; 
+import button2 from '@/app/asset/regisbut.png'; 
+import Link from 'next/link';
+import './styles.css';
 
 const HomePage = () => {
   return (
-    <main>
+    <main className="page-container">
       <Navbar />
-      <Image src={back} alt="back" className="mx-auto" />
-      <div>
-        <h1>Real-Time Chat Room</h1>
-        <ChatRoom />
+      <div className="content-container">
+        <Image src={t} alt="title" className='title-image' width={600} height={300} />
+        <div className="text-container">
+          <h1>สวัสดีครับบ เรียนเชิญทุกท่านเข้าสู่งานวัดในรูปแบบใหม่</h1>
+          <h3>เพื่อพบปะพูดคุยกับผู้คนแปลกหน้าที่ไม่รู้จัก</h3>
+        </div>
+        <Image src={bb} alt="back" width={600} height={300} />
+      </div>
+      <div className="button-container">
+        <div className="button-group">
+          <Link href="/login">
+            <button className="custom-button">
+              <Image src={button} alt="logButton" width={300} height={100} />
+            </button>
+          </Link>
+          <Link href="/register">
+            <button className="custom-button">
+              <Image src={button2} alt="regisButton" width={300} height={100} />
+            </button>
+          </Link>
+        </div>
+        
       </div>
     </main>
   );
