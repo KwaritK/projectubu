@@ -1,0 +1,68 @@
+import { NextResponse } from 'next/server';
+import { connectMongoDB } from "../../../../lib/mongodb";
+import User from '../../../../models/user';
+import { getServerSession } from "next-auth/next";
+import { authOptions } from "../auth/[...nextauth]/route";
+
+export async function POST(request) {
+  try {
+    const session = await getServerSession(authOptions);
+    if (!session?.user?.role === 'admin') {
+      return NextResponse.json({ message: 'Unauthorized' }, { status: 403 });
+    }
+
+    await connectMongoDB();
+    const { userId, days, hours, minutes } = await request.json();
+
+    if (!userId || (days === undefined && hours === undefined && minutes === undefined)) {
+      return NextResponse.json({ message: 'Missing required fields' }, { status: 400 });
+    }
+
+    const totalMinutes = (days * 1440) + (hours * 60) + Number(minutes);
+    const banEndDate = new Date(Date.now() + totalMinutes * 60000);
+
+    const user = await User.findByIdAndUpdate(userId, {
+      isBanned: true,
+      banEnd: banEndDate,
+    }, { new: true });
+
+    if (!user) {
+      return NextResponse.json({ message: 'User not found' }, { status: 404 });
+    }
+
+    return NextResponse.json({ message: 'User banned successfully', banEnd: banEndDate });
+  } catch (error) {
+    console.error('Error banning user:', error);
+    return NextResponse.json({ message: 'Failed to ban user' }, { status: 500 });
+  }
+}
+
+export async function DELETE(request) {
+  try {
+    const session = await getServerSession(authOptions);
+    if (!session?.user?.role === 'admin') {
+      return NextResponse.json({ message: 'Unauthorized' }, { status: 403 });
+    }
+
+    await connectMongoDB();
+    const { userId } = await request.json();
+
+    if (!userId) {
+      return NextResponse.json({ message: 'Missing user ID' }, { status: 400 });
+    }
+
+    const user = await User.findByIdAndUpdate(userId, {
+      isBanned: false,
+      banEnd: null,
+    }, { new: true });
+
+    if (!user) {
+      return NextResponse.json({ message: 'User not found' }, { status: 404 });
+    }
+
+    return NextResponse.json({ message: 'User unbanned successfully' });
+  } catch (error) {
+    console.error('Error unbanning user:', error);
+    return NextResponse.json({ message: 'Failed to unban user' }, { status: 500 });
+  }
+}

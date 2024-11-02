@@ -1,0 +1,102 @@
+html, body {
+  height: 100%;
+  font-family: 'Khaowjee', sans-serif;
+}
+
+@font-face {
+  font-family: 'Khaowjee';
+  src: url('/font/KhaowjeeThin.ttf') format('truetype') ;
+
+}
+h1, h2  {
+  
+  font-family:  'Khaowjee';
+  font-size: 40px;
+}
+h3 {
+    font-family:  'Khaowjee';
+    
+    font-size: 35px;
+    }
+    
+nav {
+      background-color: #000000 !important;
+    }
+
+.page-container {
+  height: 100%;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+  width: 100%;
+}
+
+.content-container {
+  flex: 1; /* Take remaining height */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 20px;
+}
+
+.title-image {
+  width: 100%;
+  max-width: 600px; /* Adjust max-width as needed */
+}
+
+.text-container {
+  margin-bottom: auto;
+}
+
+.button-container {
+  position: relative;
+  flex: 1; /* Take remaining height */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  
+}
+
+
+
+.custom-button {
+  background: transparent;
+  border: none;
+  padding: 0;
+  
+  cursor: pointer;
+  outline: none;
+}
+
+.custom-button img {
+  display: block;
+  width: 300px;
+ 
+  transition: transform 0.2s;
+}
+
+.custom-button img:active {
+  transform: scale(0.9);
+}
+
+@media (max-width: 768px) {
+  .title-image {
+    max-width: 300px;
+  }
+  .custom-button img {
+    width: 120px;
+  }
+  h1 {
+    font-size: 28px; /* Example font size adjustment */
+    text-align: center; /* Ensure headings are centered */
+  }
+  h3 {
+    font-size: 24px; /* Example font size adjustment */
+    text-align: center;
+  }
+
+}

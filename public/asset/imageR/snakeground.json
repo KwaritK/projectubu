@@ -1,0 +1,87 @@
+{
+  "frames": {
+    "ob11.png": {
+      "frame": {
+        "x": 0,
+        "y": 0,
+        "w": 225,
+        "h": 253
+      },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": {
+        "x": 88,
+        "y": 125,
+        "w": 225,
+        "h": 253
+      },
+      "sourceSize": {
+        "w": 372,
+        "h": 469
+      },
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      }
+    },
+    "ob12.png": {
+      "frame": {
+        "x": 0,
+        "y": 253,
+        "w": 202,
+        "h": 253
+      },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": {
+        "x": 82,
+        "y": 125,
+        "w": 202,
+        "h": 253
+      },
+      "sourceSize": {
+        "w": 372,
+        "h": 469
+      },
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      }
+    },
+    "ob1.png": {
+      "frame": {
+        "x": 0,
+        "y": 506,
+        "w": 213,
+        "h": 241
+      },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": {
+        "x": 89,
+        "y": 137,
+        "w": 213,
+        "h": 241
+      },
+      "sourceSize": {
+        "w": 372,
+        "h": 469
+      },
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      }
+    }
+  },
+  "meta": {
+    "app": "http://free-tex-packer.com",
+    "version": "0.6.7",
+    "image": "snakeground.png",
+    "format": "RGBA8888",
+    "size": {
+      "w": 225,
+      "h": 747
+    },
+    "scale": 1
+  }
+}
