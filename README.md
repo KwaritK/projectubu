@@ -4,6 +4,7 @@ this project for  UBU
 ขั้นตอนเริ่มต้น 
 
 npm install
+
 npm run dev
 
 let enjoy!!
