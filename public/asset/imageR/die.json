@@ -1,0 +1,63 @@
+{
+  "frames": {
+    "enemy3.png": {
+      "frame": {
+        "x": 0,
+        "y": 0,
+        "w": 309,
+        "h": 377
+      },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 309,
+        "h": 377
+      },
+      "sourceSize": {
+        "w": 384,
+        "h": 388
+      },
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      }
+    },
+    "enemy7.png": {
+      "frame": {
+        "x": 0,
+        "y": 377,
+        "w": 314,
+        "h": 348
+      },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 29,
+        "w": 314,
+        "h": 348
+      },
+      "sourceSize": {
+        "w": 384,
+        "h": 388
+      },
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      }
+    }
+  },
+  "meta": {
+    "app": "http://free-tex-packer.com",
+    "version": "0.6.7",
+    "image": "die.png",
+    "format": "RGBA8888",
+    "size": {
+      "w": 314,
+      "h": 725
+    },
+    "scale": 1
+  }
+}

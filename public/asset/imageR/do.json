@@ -1,0 +1,63 @@
+{
+  "frames": {
+    "dodgh1.1.png": {
+      "frame": {
+        "x": 0,
+        "y": 0,
+        "w": 218,
+        "h": 121
+      },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": {
+        "x": 125,
+        "y": 118,
+        "w": 218,
+        "h": 121
+      },
+      "sourceSize": {
+        "w": 513,
+        "h": 389
+      },
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      }
+    },
+    "dodgh2.1.png": {
+      "frame": {
+        "x": 218,
+        "y": 0,
+        "w": 218,
+        "h": 119
+      },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": {
+        "x": 125,
+        "y": 124,
+        "w": 218,
+        "h": 119
+      },
+      "sourceSize": {
+        "w": 513,
+        "h": 389
+      },
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      }
+    }
+  },
+  "meta": {
+    "app": "http://free-tex-packer.com",
+    "version": "0.6.7",
+    "image": "do.png",
+    "format": "RGBA8888",
+    "size": {
+      "w": 436,
+      "h": 121
+    },
+    "scale": 1
+  }
+}
