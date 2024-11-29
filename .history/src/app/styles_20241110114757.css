@@ -1,0 +1,118 @@
+html, body {
+  height: 100%;
+  font-family: 'Khaowjee', sans-serif;
+  position: 'relative',
+}
+
+@font-face {
+  font-family: 'Khaowjee';
+  src: url('/font/KhaowjeeThin.ttf') format('truetype') ;
+
+}
+h1, h2  {
+  
+  font-family:  'Khaowjee';
+  font-size: 40px;
+}
+h3 {
+    font-family:  'Khaowjee';
+    
+    font-size: 35px;
+    }
+    
+nav {
+      background-color: #000000 !important;
+    }
+.back-button {
+      position: fixed;
+      top: 20px;
+      left: 20px;
+      background-color: #ff5722; /* สีส้มให้เด่นขึ้น */
+      color: white;
+      padding: 10px 20px;
+      border-radius: 5px;
+      font-size: 1.2rem;
+      cursor: pointer;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+      transition: background-color 0.3s ease;
+  }
+  
+  .back-button:hover {
+      background-color: #e64a19; /* สีเข้มขึ้นเมื่อ hover */
+  }
+.page-container {
+  height: 100%;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
+
+.content-container {
+  flex: 1; /* Take remaining height */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 20px 0;
+}
+
+.title-image {
+  width: 100%;
+  height: auto;
+}
+
+.text-container {
+  margin-bottom: auto;
+}
+
+.button-container {
+  position: relative;
+  flex: 1; /* Take remaining height */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  
+}
+
+
+
+.custom-button {
+  background: transparent;
+  border: none;
+  padding: 0;
+  
+  cursor: pointer;
+  outline: none;
+}
+
+.custom-button img {
+  display: block;
+  width: 300px;
+ 
+  transition: transform 0.2s;
+}
+
+.custom-button img:active {
+  transform: scale(0.9);
+}
+
+@media (max-width: 768px) {
+  .title-image {
+    max-width: 300px;
+  }
+  .custom-button img {
+    width: 120px;
+  }
+  h1 {
+    font-size: 28px; /* Example font size adjustment */
+    text-align: center; /* Ensure headings are centered */
+  }
+  h3 {
+    font-size: 24px; /* Example font size adjustment */
+    text-align: center;
+  }
+
+}

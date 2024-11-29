@@ -1,0 +1,79 @@
+import React from 'react';
+import { useRouter } from 'next/navigation';
+import Navbar from '../../../public/asset/Navbar';
+import { useSession } from "next-auth/react";
+import './Styles.css';
+import { useEffect, useRef } from 'react';
+import Phaser from 'phaser';
+import HomePage from '/src/app/gameroom/src/scenes/HomePage.js';
+import GamePage from '/src/app/gameroom/src/scenes/GamePage.js';
+import GameOverPage from '/src/app/gameroom/src/scenes/GameOverPage.js';
+import Link from 'next/link';
+
+export default function Gameroom() {
+    const gameRef = useRef(null);
+    const { data: session, status } = useSession(); 
+    const router = useRouter();
+
+    useEffect(() => {
+        if (status === 'loading') return;
+        if (!session) {
+            router.push('/login');
+        } else if (session?.user?.isBanned) {
+            router.push('/banned');
+        }
+    }, [session, status, router]);
+
+    useEffect(() => {
+        if (typeof window !== 'undefined' && !gameRef.current) {
+            const config = {
+                type: Phaser.AUTO,
+                width: 1334,
+                height: 650,
+                parent: 'gameBox',
+                scale: {
+                    mode: Phaser.Scale.FIT,
+                    autoCenter: Phaser.Scale.CENTER_BOTH 
+                },
+                scene: [HomePage, GamePage, GameOverPage],
+                physics: {
+                    default: 'arcade',
+                    arcade: {
+                        gravity: { y: 0 },
+                        debug: false
+                    }
+                },
+                url: '/gameroom',
+                baseURL: '/gameroom'
+            };
+            gameRef.current = new Phaser.Game(config);
+        }
+        return () => {
+            if (gameRef.current) {
+                gameRef.current.destroy(true);
+                gameRef.current = null;
+            }
+        };
+    }, []);
+
+    if (status === 'loading') {
+        return <p>Loading...</p>;
+    }
+
+    return (
+        <>
+            <Navbar session={session} />
+            <div className="content-wrapper">
+                <h1 id="gameTitle">ANGRY สาวน้อยตกน้ำ</h1>
+                <div id="gameContainer">
+                    <div id="gameBox"></div>
+                </div>
+            </div>
+            <Link href="/map">
+                <button className="back-button">
+                    ⬅️ กลับ
+                </button>
+            </Link>
+        </>
+    );
+}
